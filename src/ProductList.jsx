@@ -4,9 +4,9 @@ import './ProductList.css'
 import CartItem from './CartItem';
 import { addItem } from './CartSlice';
 
-const dispatch = useDispatch();
 
 function ProductList({ onHomeClick }) {
+    const dispatch = useDispatch();
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
 
@@ -82,7 +82,7 @@ function ProductList({ onHomeClick }) {
                 {
                     name: "Lemon Balm",
                     image: "https://cdn.pixabay.com/photo/2019/09/16/07/41/balm-4480134_1280.jpg",
-                    description: "Citrusy scent, relieves stress and promotes sleep.",
+                    description: "Citrus scent, relieves stress and promotes sleep.",
                     cost: "$14"
                 },
                 {
@@ -219,7 +219,7 @@ function ProductList({ onHomeClick }) {
     ];
     const styleObj = {
         backgroundColor: '#4CAF50',
-        color: '#fff!important',
+        color: '#fff',
         padding: '15px',
         display: 'flex',
         justifyContent: 'space-between',
@@ -289,7 +289,7 @@ function ProductList({ onHomeClick }) {
                                     <h3>{plant.name}</h3>
                                     <p>{plant.description}</p>
                                     <p><strong>{plant.cost}</strong></p>
-                                    <button onclick={() => dispatch(addItem(plant))}>Add to Cart</button>
+                                    <button onClick={() => dispatch(addItem(plant))}>Add to Cart</button>
                                 </div>
                                 ))}
                             </div>
