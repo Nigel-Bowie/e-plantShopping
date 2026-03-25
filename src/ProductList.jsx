@@ -1,6 +1,11 @@
 import React, { useState, useEffect } from 'react';
+import { useDispatch } from 'react-redux';
 import './ProductList.css'
 import CartItem from './CartItem';
+import { addItem } from './CartSlice';
+
+const dispatch = useDispatch();
+
 function ProductList({ onHomeClick }) {
     const [showCart, setShowCart] = useState(false);
     const [showPlants, setShowPlants] = useState(false); // State to control the visibility of the About Us page
@@ -218,7 +223,7 @@ function ProductList({ onHomeClick }) {
         padding: '15px',
         display: 'flex',
         justifyContent: 'space-between',
-        alignIems: 'center',
+        alignItems: 'center',
         fontSize: '20px',
     }
     const styleObjUl = {
@@ -265,7 +270,6 @@ function ProductList({ onHomeClick }) {
                             </div>
                         </a>
                     </div>
-
                 </div>
                 <div style={styleObjUl}>
                     <div> <a href="#" onClick={(e) => handlePlantsClick(e)} style={styleA}>Plants</a></div>
@@ -274,14 +278,29 @@ function ProductList({ onHomeClick }) {
             </div>
             {!showCart ? (
                 <div className="product-grid">
+                    {plantsArray.map((categoryObj, index) => (
+                        <div key={index}>
+                            <h2>{categoryObj.category}</h2>
 
-
+                            <div className="product-list">
+                                {categoryObj.plants.map((plant, i) => (
+                                <div className="product-card" key={i}>
+                                    <img src={plant.image} alt={plant.name} />
+                                    <h3>{plant.name}</h3>
+                                    <p>{plant.description}</p>
+                                    <p><strong>{plant.cost}</strong></p>
+                                    <button onclick={() => dispatch(addItem(plant))}>Add to Cart</button>
+                                </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
                 </div>
             ) : (
                 <CartItem onContinueShopping={handleContinueShopping} />
             )}
         </div>
-    );
-}
+    ); 
+} 
 
 export default ProductList;

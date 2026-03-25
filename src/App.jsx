@@ -5,7 +5,6 @@ import './App.css';
 import AboutUs from './AboutUs';
 
 function App() {
-  
   const [showProductList, setShowProductList] = useState(false);
 
   const handleGetStartedClick = () => {
@@ -30,7 +29,7 @@ function App() {
                 Get Started
               </button>
           </div>
-          <div className="aboutus_container">
+          <div className="aboutUs_container">
             <AboutUs/>
           </div>
         </div>
