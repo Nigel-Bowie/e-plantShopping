@@ -9,6 +9,7 @@ function App() {
 
   const handleGetStartedClick = () => {
     setShowProductList(true);
+    
   };
 
   const handleHomeClick = () => {
