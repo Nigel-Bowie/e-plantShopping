@@ -25,7 +25,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    width: 1100px;
+    width: 100%;
+    max-width: 1100px;
 }
 
 .navbar li {
@@ -63,9 +64,8 @@ body {
 
 /* Product Card */
 .product-card {
-    /*flex: 0 0 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap */
-    /*max-width: calc(36.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap */
-    width: 17rem;
+    width: calc(25% - 20px);
+    max-width: 17rem;
     height: 24rem;
     margin-top: 1rem;
     margin-bottom: 1rem;
@@ -100,6 +100,7 @@ body {
 .product-image {
     max-width: 10rem;
     height: 12rem; /* Adjust height for better consistency */
+    object-fit: contain;
 }
 
 .product-button {
@@ -230,45 +231,87 @@ body {
     background-color: grey; /* Grey when product is added */
   }
 
-  // Responsive design for different screen sizes
+/* Responsive design for different screen sizes*/
 
-/* Add Media Query for responsiveness */
-@media (max-width: 768px) {
+/* Responsive design for different screen sizes */
+
+/* Medium desktops / tablets */
+@media (max-width: 1200px) {
+    .navbar .ul {
+        width: 100%;
+        justify-content: center;
+        gap: 2rem;
+    }
+
+    .luxury {
+        width: auto;
+        text-align: center;
+    }
+
     .product-card {
-        flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on smaller screens */
-        max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
+        width: calc(33.33% - 20px);
+        max-width: 17rem;
     }
 }
 
-  @media (max-width: 1200px) {
-    .product-card {
-      flex: 1 1 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap on medium screens */
-      max-width: calc(33.33% - 20px); /* Adjust max-width for 3 cards per row with 20px gap on medium screens */
-    }
-  }
-  
-  @media (max-width: 768px) {
-    .product-card {
-      flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on small screens */
-      max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on small screens */
-    }
+/* Tablets */
+@media (max-width: 768px) {
     .navbar {
-        flex-direction: column; /* Change flex direction to stack items vertically */
-        align-items: center; /* Align items to the center of the container */
-      }
-    
-      .tag {
-        margin-bottom: 20px; /* Add margin bottom for spacing */
-        text-align: center; /* Align text to the center */
-      }
-    
-      .ul {
-        display: flex; /* Set display to flex */
-        flex-direction: column; /* Change flex direction to stack items vertically */
-        gap: 10px; /* Add gap between items */
-      }
-    
-      .ul div {
-        text-align: center; /* Align text to the center */
-      }
-  }
+        flex-direction: column;
+        align-items: center;
+        gap: 1rem;
+    }
+
+    .navbar .ul {
+        flex-direction: column;
+        width: 100%;
+        gap: 1rem;
+    }
+
+    .tag {
+        width: 100%;
+        margin-bottom: 1rem;
+    }
+
+    .luxury {
+        width: 100%;
+        text-align: center;
+        font-size: 16px;
+    }
+
+    .product-card {
+        width: calc(50% - 20px);
+        max-width: 15rem;
+    }
+
+    .cart-count {
+        top: 1rem;
+        right: 1rem;
+    }
+}
+
+/* Phones */
+@media (max-width: 480px) {
+    .product-card {
+        width: 90%;
+        max-width: 100%;
+    }
+
+    .product-image {
+        max-width: 8rem;
+        height: auto;
+    }
+
+    .tag_home_link h3 {
+        font-size: 22px;
+    }
+
+    .navbar {
+        font-size: 16px;
+    }
+
+    .luxury {
+        font-size: 14px;
+        padding: 0 1rem;
+    }
+}
