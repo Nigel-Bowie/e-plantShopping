@@ -250,14 +250,17 @@ function ProductList({ onHomeClick }) {
     };
     const handlePlantsClick = (e) => {
         e.preventDefault();
+        setShowPlants(true); // Show the plants
+        setShowCart(false); // Hide the cart 
+    };
+
+     const handleContinueShopping = (e) => {
+        e.preventDefault();
         setShowPlants(true); // Set showAboutUs to true when "About Us" link is clicked
         setShowCart(false); // Hide the cart when navigating to About Us
     };
 
-    const handleContinueShopping = (e) => {
-        e.preventDefault();
-        
-    };
+   
     return (
         <div>
             <div className="navbar" style={styleObj}>
@@ -306,7 +309,7 @@ function ProductList({ onHomeClick }) {
                     ))}
                 </div>
             ) : (
-                <CartItem onContinueShopping={handleContinueShopping} />
+                <CartItem onContinueShopping={handleContinueShopping } />
             )}
         </div>
     ); 

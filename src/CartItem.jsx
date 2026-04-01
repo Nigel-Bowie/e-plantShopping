@@ -1,6 +1,7 @@
 import { useSelector, useDispatch } from 'react-redux';
 import { removeItem, updateQuantity } from './CartSlice';
 import './CartItem.css';
+import './ProductList.jsx';
 
 const CartItem = ({ onContinueShopping }) => {
   const cart = useSelector(state => state.cart.items);
@@ -23,10 +24,7 @@ const CartItem = ({ onContinueShopping }) => {
   };
 
   // Event handlers
-  const handleContinueShopping = (e) => {
-    e.preventDefault();
-    if (onContinueShopping) onContinueShopping(e);
-  };
+
 
   const handleCheckoutShopping = (e) => {
     e.preventDefault();
@@ -80,7 +78,7 @@ const CartItem = ({ onContinueShopping }) => {
       </div>
 
       <div className="continue_shopping_btn">
-        <button className="get-started-button" onClick={handleContinueShopping}>
+        <button className="get-started-button" onClick={onContinueShopping}>
           Continue Shopping
         </button>
         <br />

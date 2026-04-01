@@ -166,7 +166,7 @@ body {
     font-size: 19px;
 }
 .cart{
-    color: white;
+    color: rgb(8, 8, 8);
     display: inline-block;
     position: relative;
 }
@@ -177,7 +177,7 @@ body {
     background-color: rgb(10, 17, 49);
     color: white;
     border-radius: 50%;
-    padding: 0.12rem 0.5rem;
+    padding: 0.1rem ;
     font-size: 1rem;
 }
 
@@ -205,13 +205,7 @@ body {
 
     
 }
-/* Add Media Query for responsiveness */
-@media (max-width: 768px) {
-    .product-card {
-        flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on smaller screens */
-        max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
-    }
-}
+
 /* ProductList.css */
 
 .product-button {
@@ -235,6 +229,17 @@ body {
   .product-button.added-to-cart {
     background-color: grey; /* Grey when product is added */
   }
+
+  // Responsive design for different screen sizes
+
+/* Add Media Query for responsiveness */
+@media (max-width: 768px) {
+    .product-card {
+        flex: 1 1 calc(50% - 20px); /* Adjust width for 2 cards per row with 20px gap on smaller screens */
+        max-width: calc(50% - 20px); /* Adjust max-width for 2 cards per row with 20px gap on smaller screens */
+    }
+}
+
   @media (max-width: 1200px) {
     .product-card {
       flex: 1 1 calc(33.33% - 20px); /* Adjust width for 3 cards per row with 20px gap on medium screens */
