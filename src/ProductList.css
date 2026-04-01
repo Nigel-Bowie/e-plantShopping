@@ -167,8 +167,20 @@ body {
 }
 .cart{
     color: white;
-    display: flex;
+    display: inline-block;
+    position: relative;
 }
+.cart-count {
+    position: absolute;
+    top: 2.25rem;
+    right: 2.25rem;
+    background-color: rgb(10, 17, 49);
+    color: white;
+    border-radius: 50%;
+    padding: 0.12rem 0.5rem;
+    font-size: 1rem;
+}
+
 .cart_quantity_count{
     margin-top: 16px;
     /* background-color: red; */
